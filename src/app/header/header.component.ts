@@ -21,8 +21,10 @@ export class HeaderComponent implements OnInit {
   cartTotalPrice = 0;
   register = {"name":"","email":"","mobile":"","password":"","re_password":""}
   welcomeUsername = "";
+  productsList:any;
 
-  constructor(private router:Router,private cartService:CartServiceService, private http:HttpServiceService){
+  constructor(private router:Router,private cartService:CartServiceService, 
+    private http:HttpServiceService){
     let request = {}
 
     this.http.postRequest("api/status",request).subscribe(data=>{
@@ -74,6 +76,7 @@ export class HeaderComponent implements OnInit {
       alert("Eror in login "+error);
     })
   } 
+  
   registerUser(){
     if(this.register.name ==""){
       alert("Name should not be empty");
@@ -98,13 +101,14 @@ export class HeaderComponent implements OnInit {
      
 
     let request ={     
-       "name":this.register.name,
+      "user_name":this.register.name,
       "email":this.register.email,
       "password":this.register.password,
       "mobile":this.register.mobile
     }
     this.http.postRequest('api/signup/user',request).subscribe(data=>{
-         alert("Register successfully..")
+         alert("Register successfully..");
+         console.log(data);
          this.dialogType = "login";
     },error=>{
       alert("Error in login "+error);
@@ -135,5 +139,24 @@ export class HeaderComponent implements OnInit {
       this.currentDropDownMenu = currentDropdownMenuName;
     }
     
+  }
+
+  getProductsByCategory(obj){
+    let request ={
+      "category":obj
+    }
+    var url = 'product/getProductsByCategory';
+    console.log("URL is " + url);
+   this.http.postRequestWithToken(url,request).subscribe(data=>{
+      this.productsList = data
+      if(this.productsList.length == 0){
+        alert("No Product is found..");
+      }
+      else {
+        console.log(this.productsList);
+      }
+   },error=>{
+     alert("Error in product Get "+error);
+   })
   }
 }

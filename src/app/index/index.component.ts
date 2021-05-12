@@ -16,9 +16,9 @@ export class IndexComponent implements OnInit {
     this.http.postRequestWithToken("api/product/getAllCategory",{}).subscribe(data=>{
       this.categoryList = data;
       if(this.categoryList.length > 1)
-        this.getProductsByCateogy(data[0])
+        this.getProductsByCategory(data[0])
     },error=>{
-      alert("Server connection error "+error)
+    //  alert("Server connection error "+error)
     })
   }
 
@@ -32,17 +32,17 @@ export class IndexComponent implements OnInit {
     }
     this.cartService.addCart(cartObj);
   }
-  getProductsByCateogy(obj){
+  getProductsByCategory(obj){
     let request ={
       "cat_id":obj.id
     }
-   this.http.postRequestWithToken('api/product/getProductsByCategory',request).subscribe(data=>{
+   this.http.postRequestWithToken('product/getProductsByCategory/'+obj.id,request).subscribe(data=>{
       this.productsList = data
       if(this.productsList.length == 0){
         alert("No Product is found..");
       }
    },error=>{
-     alert("Error in login "+error);
+     alert("Error in product Get "+error);
    })
   }
 

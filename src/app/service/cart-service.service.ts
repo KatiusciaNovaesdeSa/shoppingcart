@@ -26,7 +26,7 @@ export class CartServiceService {
      this.cartTotalPrice = this.getTotalAmounOfTheCart();
       this.cartServiceEvent.next({"status":"completed"})//emitter
      },error=>{
-       alert("Error while fetching the cart Details");
+      // alert("Error while fetching the cart Details");
      })
    }
 
@@ -43,7 +43,7 @@ export class CartServiceService {
     },
     error=>{
       //if the products is already in cart
-        alert("Error in AddCart API "+error.message);
+      //  alert("Error in AddCart API "+error.message);
     })
   }
   getCartOBj(){
@@ -72,7 +72,7 @@ export class CartServiceService {
       this.http.postRequestWithToken("api/addtocart/removeProductFromCart",request).subscribe((data:any)=>{
           this.getCartDetailsByUser();
       },error=>{
-        alert("Error while fetching the cart Details");
+     //   alert("Error while fetching the cart Details");
       })
   }
 }

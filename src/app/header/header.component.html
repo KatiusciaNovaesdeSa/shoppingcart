@@ -138,25 +138,25 @@
           <li><a href="#" class="act">Home</a></li>	
           <!-- Mega Menu -->
           <li class="dropdown" [ngClass]="[currentDropDownMenu == 'products' ? 'open' : '']">
-            <a href="javascript:void(0)" (click)="curentDropDown('products')" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+            <a href="javascript:void(0)" (click)="curentDropDown('products')" class="dropdown-toggle" data-toggle="dropdown">Books <b class="caret"></b></a>
             <ul class="dropdown-menu multi-column columns-3">
               <div class="row">
                 <div class="col-sm-3">
                   <ul class="multi-column-dropdown">
                     <h6>Best Sellers</h6>
-                    <li><a href="products.html">Kids</a></li>
-                    <li><a href="products.html">Romance <span>New</span></a></li> 
-                    <li><a href="products.html">Fiction</a></li>
-                    <li><a href="products.html">Cooking<span>New</span></a></li>
+                    <li><a [routerLink]="['/book','1']">Kids</a></li>
+                    <li><a [routerLink]="['/book','2']">Romance <span>New</span></a></li> 
+                    <li><a [routerLink]="['/book','3']">Fiction</a></li>
+                    <li><a [routerLink]="['/book','4']">Cooking<span>New</span></a></li>
                   </ul>
                 </div>
                 <div class="col-sm-3">
                   <ul class="multi-column-dropdown">
                     <h6>Books</h6>
-                    <li><a href="products1.html">Science</a></li>
-                    <li><a href="products1.html">Computer</a></li>
-                    <li><a href="products1.html">Health <span>New</span></a></li>
-                    <li><a href="products1.html"><i>On Sale</i></a></li>
+                    <li><a [routerLink]="['/book','5']">Science</a></li>
+                    <li><a [routerLink]="['/book','6']">Biography</a></li>
+                    <li><a [routerLink]="['/book','7']">Health <span>New</span></a></li>
+                    <li><a [routerLink]="['/book','8']"><i>On Sale</i></a></li>
                   </ul>
                 </div>
                 <div class="col-sm-2">
