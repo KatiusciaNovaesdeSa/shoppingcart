@@ -58,10 +58,11 @@ export class CheckoutComponent implements OnInit {
   }
 
   removeCartById(cartObj){
-    if(confirm("Are you sure want to delete..?")){
+    //if(confirm("Are you sure want to delete..?")){
       let id  = cartObj.id;
+      console.log("About to be deleted" + id);
       this.cartService.removeCart(id);
-    }    
+    //}    
   }
   checkoutCart(){
     if(this.delivery_address == ""){

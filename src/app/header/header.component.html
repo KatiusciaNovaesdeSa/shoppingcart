@@ -178,7 +178,7 @@
               </div>
             </ul>
           </li>
-          <li><a href="/src/about.html">About Us</a></li> 
+          <li><a [routerLink]="['/about']">About Us</a></li> 
           <!-- a href="about.html">About Us</a></li>  -->
           <li class="w3pages" [ngClass]="[currentDropDownMenu == 'pages' ? 'open' : '']">
             <a (click)="curentDropDown('pages')"  href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">In the Media <span class="caret"></span></a>

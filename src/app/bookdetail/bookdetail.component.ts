@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-
+import {CartServiceService} from '../service/cart-service.service';
 import {HttpServiceService} from '../http-service.service';
 import { Book} from '../book';
 
@@ -16,7 +16,8 @@ export class BookdetailComponent implements OnInit {
    
    constructor(private _Activatedroute:ActivatedRoute,
                private _router:Router,
-               private http:HttpServiceService){
+               private http:HttpServiceService,
+               private cartService:CartServiceService){
    }
 
   ngOnInit(): void {
@@ -49,6 +50,15 @@ export class BookdetailComponent implements OnInit {
    },error=>{
      alert("Error in product Get "+error);
    })
+  }
+
+  addToCart(productId, productPrice){
+    var cartObj = {
+      "productId":productId,
+      "qty":"1",
+      "price":productPrice
+    }
+    this.cartService.addCart(cartObj);
   }
 
 }

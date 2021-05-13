@@ -1,5 +1,5 @@
 <div class="about-section">
-  <h1>About Us Page</h1>
+  <h1>About Us</h1>
   <p>Some text about who we are and what we do.</p>
   <p>Resize the browser window to see that this page is responsive by the way.</p>
 </div>
@@ -8,12 +8,12 @@
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+      <img src="assets/images/me.jpg" alt="Kati" style="width:100%">
       <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
+        <h2>Katiuscia Novaes</h2>
+        <p class="title">Software Developer</p>
+        <p>developer, tech lover and lifetime learner. 😏💕</p>
+        <p>katiuscia.novaesdesa@revature.com</p>
         <p><button class="button">Contact</button></p>
       </div>
     </div>
@@ -23,8 +23,34 @@
     <div class="card">
       <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
       <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
+        <h2>Thanh Tran</h2>
+        <p class="title">Software Developer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>mike@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Sree Manikandan</h2>
+        <p class="title">Software Developer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>mike@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Neethu Augustin</h2>
+        <p class="title">Software Developer</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>mike@example.com</p>
         <p><button class="button">Contact</button></p>
@@ -36,9 +62,47 @@
     <div class="card">
       <img src="/w3images/team3.jpg" alt="John" style="width:100%">
       <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
+        <h2>Aisha</h2>
+        <p class="title">Software Developer</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>john@example.com</p>
         <p><button class="button">Contact</button></p>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+<br>
+<div class="about-section">
+<h1>Want to be in our team?</h1>
+<a class="btn btn-primary mb-3" (click)="addBook()">Be our teamm member</a>
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+          <td>{{team.id}}</td>
+          <td>{{team.name}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="viewBook(team.id)">Show Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <app-viewbook *ngIf="action === 'view'" [team]="selectedTeam" (teamDeletedEvent)="refreshData()"></app-viewbook>
+    <app-addbook *ngIf="action === 'edit' || action === 'add'" [team]="selectedBook" (teamAddedEvent)="refreshData()"></app-addbook>
+  </div>
+</div>
+</div>

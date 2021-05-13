@@ -19,11 +19,12 @@ export class CartServiceService {
    }
 
    getCartDetailsByUser(){
-     this.http.postRequestWithToken("api/addtocart/getCartsByUserId",{}).subscribe((data:any)=>{
+     this.http.postRequestWithToken("addtocart/getCartsByUserId",{}).subscribe((data:any)=>{
       //alert("Error while fetching the cart Details");
       this.cartObj = data;
       this.cartQty = data.length;
-     this.cartTotalPrice = this.getTotalAmounOfTheCart();
+      this.cartTotalPrice = this.getTotalAmounOfTheCart();
+      console.log(this.cartObj);
       this.cartServiceEvent.next({"status":"completed"})//emitter
      },error=>{
       // alert("Error while fetching the cart Details");
@@ -33,12 +34,14 @@ export class CartServiceService {
 
   addCart(obj){
     //this.cartServiceEvent.next({"status":"completed"})//emitter
+    var userId = this.http.getLoginDataByKey("user_id");
     var request  = {
+      "userId":userId,
       "productId":obj.productId,
       "qty":obj.qty,
       "price":obj.price
     }
-    this.http.postRequestWithToken("api/addtocart/addProduct",request).subscribe((data:any)=>{
+    this.http.postRequestWithToken("addtocart/addProduct",request).subscribe((data:any)=>{
       this.getCartDetailsByUser()
     },
     error=>{
@@ -65,11 +68,18 @@ export class CartServiceService {
 
 
   removeCart(cartId){
+    /*
       var request = {
           "productId":"dummy_val",
           "cartId":cartId,
       }
-      this.http.postRequestWithToken("api/addtocart/removeProductFromCart",request).subscribe((data:any)=>{
+      */
+      var userId = this.http.getLoginDataByKey("user_id");
+      var request = {
+        "userId":userId,
+        "cartId":cartId
+      }
+      this.http.postRequestWithToken("addtocart/removeProductFromCart",request).subscribe((data:any)=>{
           this.getCartDetailsByUser();
       },error=>{
      //   alert("Error while fetching the cart Details");
