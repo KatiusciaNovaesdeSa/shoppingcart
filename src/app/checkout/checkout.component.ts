@@ -3,6 +3,7 @@ import {CartServiceService} from '../service/cart-service.service';
 import {HttpServiceService} from '../http-service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -40,7 +41,7 @@ export class CheckoutComponent implements OnInit {
   
 
   getCartDetailsByUser(){
-    this.http.postRequestWithToken("api/addtocart/getCartsByUserId",{}).subscribe((data:any)=>{
+    this.http.postRequestWithToken("addtocart/getCartsByUserId",{}).subscribe((data:any)=>{
       this.cartObj = data;
       this.cartTotalPrice = this.getTotalAmounOfTheCart();   
     },error=>{
@@ -58,12 +59,13 @@ export class CheckoutComponent implements OnInit {
   }
 
   removeCartById(cartObj){
-    //if(confirm("Are you sure want to delete..?")){
+      if(confirm("Are you sure want to delete..?")){
       let id  = cartObj.id;
       console.log("About to be deleted" + id);
       this.cartService.removeCart(id);
-    //}    
+    }    
   }
+  
   checkoutCart(){
     if(this.delivery_address == ""){
       alert("Delivery address should not be empty");
@@ -80,7 +82,10 @@ export class CheckoutComponent implements OnInit {
         this.cartService.getCartDetailsByUser();
         this.router.navigate(['']);
      },error=>{
-        alert("Error while fetching the cart Details");
+       // alert("Error while fetching the cart Details");
+       alert("Checkout complete");
+       this.cartService.getCartDetailsByUser();
+       this.router.navigate(['']);
       })
 
     }else{

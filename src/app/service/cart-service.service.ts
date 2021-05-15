@@ -66,6 +66,10 @@ export class CartServiceService {
     return this.cartQty;
   }
 
+  alertCart(){
+    alert('invalid');
+   
+  }
 
   removeCart(cartId){
     /*

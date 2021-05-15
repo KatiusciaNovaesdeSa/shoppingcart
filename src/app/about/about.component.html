@@ -1,72 +1,73 @@
 <div class="about-section">
   <h1>About Us</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
+  <p>We developed an API using Spring Boot and a client application that will consume the API using Angular..</p>
+  <p>
+    The user will be able to login, and add/remove books from a product list to/from a shopping cart and to place an order.</p>
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="assets/images/me.jpg" alt="Kati" style="width:100%">
+      <img src="assets/images/kati.jpg" alt="Kati" style="width:100%">
       <div class="container">
         <h2>Katiuscia Novaes</h2>
         <p class="title">Software Developer</p>
-        <p>developer, tech lover and lifetime learner. 😏💕</p>
+        <p>Developer, tech lover and lifetime learner. 😏💕</p>
         <p>katiuscia.novaesdesa@revature.com</p>
-        <p><button class="button">Contact</button></p>
+        <!-- <p><button class="button">Contact</button></p> -->
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <img src="/assets/images/tom.jpg" alt="Thah" style="width:100%">
       <div class="container">
         <h2>Thanh Tran</h2>
         <p class="title">Software Developer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p>Developer, tech lover.</p>
+        <p>thanh.tra@revature.com</p>
+        <!-- <p><button class="button">Contact</button></p> -->
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <img src="/assets/images/sree.jpg" alt="Sree" style="width:100%">
       <div class="container">
         <h2>Sree Manikandan</h2>
         <p class="title">Software Developer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p>Developer, tech lover.</p>
+        <p>sree.manikandan@revature.com</p>
+        <!-- <p><button class="button">Contact</button></p> -->
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <img src="/assets/images/neethu.jpg" alt="Neethu" style="width:100%">
       <div class="container">
         <h2>Neethu Augustin</h2>
         <p class="title">Software Developer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p>Developer, tech lover.</p>
+        <p>neethu.augustin@revature.com</p>
+        <!-- <p><button class="button">Contact</button></p> -->
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <img src="/assets/images/asha.jpg" alt="Aisha" style="width:100%">
       <div class="container">
         <h2>Aisha</h2>
         <p class="title">Software Developer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p>Developer, tech lover.</p>
+        <p>aisha@revature.com</p>
+        <!-- <p><button class="button">Contact</button></p> -->
       </div>
     </div>
   </div>
@@ -78,20 +79,21 @@
 <br>
 <div class="about-section">
 <h1>Want to be in our team?</h1>
-<a class="btn btn-primary mb-3" (click)="addBook()">Be our teamm member</a>
+<br><br>
+<a class="btn btn-primary mb-3" (click)="addBook()">Click here to join!</a>
 <div class="container row">
   <div class="col-md-6">
     <table class="table">
       <thead>
         <tr>
-          <th>ID</th>
+          <!-- <th>ID</th> -->
           <th>Name</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let team of teams">
-          <td>{{team.id}}</td>
+          <!-- <td>{{team.id}}</td> -->
           <td>{{team.name}}</td>
           <td>
             <button type="button" class="btn btn-primary" (click)="viewBook(team.id)">Show Details</button>
